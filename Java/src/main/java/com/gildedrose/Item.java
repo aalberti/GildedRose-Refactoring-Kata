@@ -12,20 +12,14 @@ public class Item {
     }
 
     void ageByOneDay() {
-        if (!this.name.equals("Sulfuras, Hand of Ragnaros")) {
-            downgrade();
-        }
-
-        if (!this.name.equals("Sulfuras, Hand of Ragnaros")) {
-            this.sellIn = this.sellIn - 1;
-        }
-
-        if (this.sellIn < 0 && !this.name.equals("Sulfuras, Hand of Ragnaros")) {
+        downgrade();
+        this.sellIn = this.sellIn - 1;
+        if (this.sellIn < 0) {
             downgrade();
         }
     }
 
-    void downgrade() {
+    private void downgrade() {
         if (quality > 0) {
             this.quality = this.quality - 1;
         }
