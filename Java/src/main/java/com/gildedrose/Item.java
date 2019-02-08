@@ -2,13 +2,13 @@ package com.gildedrose;
 
 public class Item {
 
-    public String name;
+    String name;
 
-    public int sellIn;
+    int sellIn;
 
-    public int quality;
+    int quality;
 
-    public Item(String name, int sellIn, int quality) {
+    Item(String name, int sellIn, int quality) {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
@@ -50,13 +50,13 @@ public class Item {
         }
     }
 
-    void downgrade() {
+    private void downgrade() {
         if (quality > 0) {
             this.quality = this.quality - 1;
         }
     }
 
-    void upgrade() {
+    private void upgrade() {
         if (quality < 50) {
             this.quality = this.quality + 1;
         }
