@@ -12,11 +12,19 @@ public class Item {
     }
 
     void ageByOneDay() {
-        downgrade();
+        updateBeforeSellByDate();
         this.sellIn = this.sellIn - 1;
         if (this.sellIn < 0) {
-            downgrade();
+            furtherUpdateAfterSellByDate();
         }
+    }
+
+    void updateBeforeSellByDate() {
+        downgrade();
+    }
+
+    void furtherUpdateAfterSellByDate() {
+        downgrade();
     }
 
     private void downgrade() {

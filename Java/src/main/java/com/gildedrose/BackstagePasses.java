@@ -6,7 +6,7 @@ class BackstagePasses extends Item {
     }
 
     @Override
-    void ageByOneDay() {
+    void updateBeforeSellByDate() {
         upgrade();
         if (this.sellIn < 11) {
             upgrade();
@@ -14,11 +14,10 @@ class BackstagePasses extends Item {
         if (this.sellIn < 6) {
             upgrade();
         }
+    }
 
-        this.sellIn = this.sellIn - 1;
-
-        if (this.sellIn < 0) {
-            this.quality = 0;
-        }
+    @Override
+    void furtherUpdateAfterSellByDate() {
+        quality = 0;
     }
 }

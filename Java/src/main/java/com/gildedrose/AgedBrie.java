@@ -6,11 +6,12 @@ class AgedBrie extends Item {
     }
 
     @Override
-    void ageByOneDay() {
+    void updateBeforeSellByDate() {
         upgrade();
-        this.sellIn = this.sellIn - 1;
-        if (this.sellIn < 0) {
-            upgrade();
-        }
+    }
+
+    @Override
+    void furtherUpdateAfterSellByDate() {
+        upgrade();
     }
 }
