@@ -50,13 +50,13 @@ public class Item {
         }
     }
 
-    private void downgrade() {
+    void downgrade() {
         if (quality > 0) {
             this.quality = this.quality - 1;
         }
     }
 
-    private void upgrade() {
+    void upgrade() {
         if (quality < 50) {
             this.quality = this.quality + 1;
         }
