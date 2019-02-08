@@ -15,18 +15,8 @@ public class Item {
     }
 
     void ageByOneDay() {
-        if (this.name.equals("Aged Brie")
-                || this.name.equals("Backstage passes to a TAFKAL80ETC concert")
-        ) {
+        if (this.name.equals("Aged Brie")) {
             upgrade();
-            if (this.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (this.sellIn < 11) {
-                    upgrade();
-                }
-                if (this.sellIn < 6) {
-                    upgrade();
-                }
-            }
         } else if (!this.name.equals("Sulfuras, Hand of Ragnaros")) {
             downgrade();
         }
@@ -38,14 +28,8 @@ public class Item {
         if (this.sellIn < 0) {
             if (this.name.equals("Aged Brie")) {
                 upgrade();
-            } else {
-                if (!this.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                    if (!this.name.equals("Sulfuras, Hand of Ragnaros")) {
-                        downgrade();
-                    }
-                } else {
-                    this.quality = 0;
-                }
+            } else if (!this.name.equals("Sulfuras, Hand of Ragnaros")) {
+                downgrade();
             }
         }
     }
