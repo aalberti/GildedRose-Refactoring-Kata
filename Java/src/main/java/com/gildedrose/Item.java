@@ -12,9 +12,7 @@ public class Item {
     }
 
     void ageByOneDay() {
-        if (this.name.equals("Aged Brie")) {
-            upgrade();
-        } else if (!this.name.equals("Sulfuras, Hand of Ragnaros")) {
+        if (!this.name.equals("Sulfuras, Hand of Ragnaros")) {
             downgrade();
         }
 
@@ -22,12 +20,8 @@ public class Item {
             this.sellIn = this.sellIn - 1;
         }
 
-        if (this.sellIn < 0) {
-            if (this.name.equals("Aged Brie")) {
-                upgrade();
-            } else if (!this.name.equals("Sulfuras, Hand of Ragnaros")) {
-                downgrade();
-            }
+        if (this.sellIn < 0 && !this.name.equals("Sulfuras, Hand of Ragnaros")) {
+            downgrade();
         }
     }
 
