@@ -14,8 +14,60 @@ public class Item {
         this.quality = quality;
     }
 
-   @Override
-   public String toString() {
+    void ageByOneDay() {
+        if (this.name.equals("Aged Brie")
+                || this.name.equals("Backstage passes to a TAFKAL80ETC concert")
+        ) {
+            if (this.quality < 50) {
+                upgrade();
+
+                if (this.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                    if (this.sellIn < 11 && this.quality < 50) {
+                        upgrade();
+                    }
+
+                    if (this.sellIn < 6 && this.quality < 50) {
+                        upgrade();
+                    }
+                }
+            }
+        } else {
+            if (this.quality > 0 && !this.name.equals("Sulfuras, Hand of Ragnaros")) {
+                downgrade();
+            }
+        }
+
+        if (!this.name.equals("Sulfuras, Hand of Ragnaros")) {
+            this.sellIn = this.sellIn - 1;
+        }
+
+        if (this.sellIn < 0) {
+            if (!this.name.equals("Aged Brie")) {
+                if (!this.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                    if (this.quality > 0 && !this.name.equals("Sulfuras, Hand of Ragnaros")) {
+                        downgrade();
+                    }
+                } else {
+                    this.quality = 0;
+                }
+            } else {
+                if (this.quality < 50) {
+                    upgrade();
+                }
+            }
+        }
+    }
+
+    void downgrade() {
+        this.quality = this.quality - 1;
+    }
+
+    void upgrade() {
+        this.quality = this.quality + 1;
+    }
+
+    @Override
+    public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 }
