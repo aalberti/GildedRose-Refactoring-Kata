@@ -78,7 +78,7 @@ public class GildedRoseTest {
 
     @Test
     public void SulfurasBeingALegendaryItemNeverHasToBeSoldOrDecreasesInQuality() throws Exception {
-        Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", -1, 80) };
+        Item[] items = new Item[] { new Sulfuras(-1, 80) };
         GildedRose app = new GildedRose(items);
         app.ageByOneDay();
         Item item = app.getItem("Sulfuras, Hand of Ragnaros");
