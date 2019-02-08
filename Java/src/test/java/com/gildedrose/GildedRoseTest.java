@@ -51,7 +51,7 @@ public class GildedRoseTest {
 
     @Test
     public void theQualityOfAnItemIsNeverMoreThan50() throws Exception {
-        Item[] items = new Item[] { new Item("Aged Brie", -1, 50), new BackstagePasses(3, 49) };
+        Item[] items = new Item[] { new AgedBrie(-1, 50), new BackstagePasses(3, 49) };
         GildedRose app = new GildedRose(items);
         app.ageByOneDay();
         Item item = app.getItem("Aged Brie");
@@ -67,7 +67,7 @@ public class GildedRoseTest {
 
     @Test
     public void briesQualityIncrementsByOneForEachDayPastItsSellByDate() throws Exception {
-        Item[] items = new Item[] { new Item("Aged Brie", -1, 1) };
+        Item[] items = new Item[] { new AgedBrie(-1, 1) };
         GildedRose app = new GildedRose(items);
         app.ageByOneDay();
         Item item = app.getItem("Aged Brie");
