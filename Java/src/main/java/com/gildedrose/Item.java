@@ -15,20 +15,13 @@ public class Item {
     }
 
     void update() {
-        if (this.value > 0) {
-            this.value = this.value - 1;
-        }
+        decreaseValue();
 
         this.sellIn = this.sellIn - 1;
 
-        if (isExpired() && this.value > 0) {
-            this.value = this.value - 1;
+        if (isExpired()) {
+            decreaseValue();
         }
-    }
-
-    @Override
-   public String toString() {
-        return this.name + ", " + this.sellIn + ", " + this.value;
     }
 
     protected boolean isExpired() {
@@ -39,5 +32,16 @@ public class Item {
         if (this.value < 50) {
             this.value = this.value + 1;
         }
+    }
+
+    private void decreaseValue() {
+        if (this.value > 0) {
+            this.value = this.value - 1;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return this.name + ", " + this.sellIn + ", " + this.value;
     }
 }
