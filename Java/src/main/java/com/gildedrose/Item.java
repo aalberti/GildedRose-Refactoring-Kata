@@ -16,7 +16,10 @@ public class Item {
 
     void update() {
         getOlder();
+        updateValue();
+    }
 
+    void updateValue() {
         decreaseValue();
         if (isExpired()) {
             decreaseValue();

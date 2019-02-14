@@ -6,9 +6,7 @@ public class AgedBrie extends Item {
     }
 
     @Override
-    void update() {
-        getOlder();
-
+    void updateValue() {
         increaseValue();
         if (isExpired()) {
             increaseValue();

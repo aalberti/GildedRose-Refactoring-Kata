@@ -6,9 +6,7 @@ public class BackstagePasses extends Item {
     }
 
     @Override
-    void update() {
-        getOlder();
-
+    void updateValue() {
         increaseValue();
         if (expiresWithin(10))
             increaseValue();
