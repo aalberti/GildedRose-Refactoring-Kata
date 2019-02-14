@@ -27,12 +27,12 @@ public class Item {
             wearOutBy(1);
     }
 
-    void wearOutBy(int valueToRemove) {
-        this.value = Math.max(this.value - valueToRemove, 0);
-    }
-
     void improveBy(int valueToAdd) {
         value = Math.min(value + valueToAdd, 50);
+    }
+
+    void wearOutBy(int valueToRemove) {
+        this.value = Math.max(this.value - valueToRemove, 0);
     }
 
     boolean expiresWithin(int days) {
