@@ -1,14 +1,11 @@
 package com.gildedrose;
 
 public class Item {
+    private String name;
+    private int sellIn;
+    private int value;
 
-    public String name;
-
-    public int sellIn;
-
-    public int value;
-
-    public Item(String name, int sellIn, int value) {
+    Item(String name, int sellIn, int value) {
         this.name = name;
         this.sellIn = sellIn;
         this.value = value;
@@ -26,7 +23,7 @@ public class Item {
             wearOutBy(1);
     }
 
-    private void wearOutBy(int valueToRemove) {
+    void wearOutBy(int valueToRemove) {
         this.value = Math.max(this.value - valueToRemove, 0);
     }
 
@@ -42,6 +39,22 @@ public class Item {
         if (this.value < 50) {
             this.value = this.value + 1;
         }
+    }
+
+    boolean expiresWithin(int i) {
+        return this.sellIn < i;
+    }
+
+    String name() {
+        return name;
+    }
+
+    int sellIn() {
+        return sellIn;
+    }
+
+    int value() {
+        return value;
     }
 
     @Override

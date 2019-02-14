@@ -1,7 +1,7 @@
 package com.gildedrose;
 
-public class BackstagePasses extends Item {
-    public BackstagePasses(int sellIn, int quality) {
+class BackstagePasses extends Item {
+    BackstagePasses(int sellIn, int quality) {
         super("Backstage passes to a TAFKAL80ETC concert", sellIn, quality);
     }
 
@@ -14,11 +14,7 @@ public class BackstagePasses extends Item {
             increaseValue();
 
         if (isExpired()) {
-            this.value = 0;
+            wearOutBy(value());
         }
-    }
-
-    private boolean expiresWithin(int i) {
-        return this.sellIn < i;
     }
 }
