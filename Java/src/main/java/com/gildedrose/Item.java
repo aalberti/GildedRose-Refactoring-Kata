@@ -6,28 +6,38 @@ public class Item {
 
     public int sellIn;
 
-    public int quality;
+    public int value;
 
-    public Item(String name, int sellIn, int quality) {
+    public Item(String name, int sellIn, int value) {
         this.name = name;
         this.sellIn = sellIn;
-        this.quality = quality;
+        this.value = value;
     }
 
     void update() {
-        if (this.quality > 0) {
-            this.quality = this.quality - 1;
+        if (this.value > 0) {
+            this.value = this.value - 1;
         }
 
         this.sellIn = this.sellIn - 1;
 
-        if (this.sellIn < 0 && this.quality > 0) {
-            this.quality = this.quality - 1;
+        if (isExpired() && this.value > 0) {
+            this.value = this.value - 1;
         }
     }
 
     @Override
    public String toString() {
-        return this.name + ", " + this.sellIn + ", " + this.quality;
+        return this.name + ", " + this.sellIn + ", " + this.value;
+    }
+
+    protected boolean isExpired() {
+        return this.sellIn < 0;
+    }
+
+    protected void increaseValue() {
+        if (this.value < 50) {
+            this.value = this.value + 1;
+        }
     }
 }

@@ -7,22 +7,20 @@ public class BackstagePasses extends Item {
 
     @Override
     void update() {
-        if (this.quality < 50) {
-            this.quality = this.quality + 1;
-
-            if (this.sellIn < 11 && this.quality < 50) {
-                this.quality = this.quality + 1;
-            }
-
-            if (this.sellIn < 6 && this.quality < 50) {
-                this.quality = this.quality + 1;
-            }
-        }
+        increaseValue();
+        if (expiresIn(11))
+            increaseValue();
+        if (expiresIn(6))
+            increaseValue();
 
         this.sellIn = this.sellIn - 1;
 
-        if (this.sellIn < 0) {
-            this.quality = 0;
+        if (isExpired()) {
+            this.value = 0;
         }
+    }
+
+    private boolean expiresIn(int i) {
+        return this.sellIn < i;
     }
 }
