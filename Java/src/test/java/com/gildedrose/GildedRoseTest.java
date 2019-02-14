@@ -59,7 +59,7 @@ public class GildedRoseTest {
 
     @Test
     public void briesQualityIncrementsByOneForEachDayPastItsSellByDate() throws Exception {
-        Item[] items = new Item[] { new Item("Aged Brie", -1, 1) };
+        Item[] items = new Item[] { new AgedBrie(-1, 1) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         Item item = app.getItem("Aged Brie");
