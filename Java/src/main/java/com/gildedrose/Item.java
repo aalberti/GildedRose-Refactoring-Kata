@@ -11,9 +11,13 @@ public class Item {
         this.value = value;
     }
 
-    void update() {
+    void nextDay() {
         getOlder();
         updateValue();
+    }
+
+    private void getOlder() {
+        this.sellIn = this.sellIn - 1;
     }
 
     void updateValue() {
@@ -27,20 +31,16 @@ public class Item {
         this.value = Math.max(this.value - valueToRemove, 0);
     }
 
-    private void getOlder() {
-        this.sellIn = this.sellIn - 1;
-    }
-
-    boolean isExpired() {
-        return this.sellIn < 0;
-    }
-
     void improveBy(int valueToAdd) {
         value = Math.min(value + valueToAdd, 50);
     }
 
     boolean expiresWithin(int days) {
         return this.sellIn < days;
+    }
+
+    boolean isExpired() {
+        return this.sellIn < 0;
     }
 
     String name() {
