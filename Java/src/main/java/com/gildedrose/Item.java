@@ -35,14 +35,12 @@ public class Item {
         return this.sellIn < 0;
     }
 
-    void increaseValue() {
-        if (this.value < 50) {
-            this.value = this.value + 1;
-        }
+    void improveBy(int valueToAdd) {
+        value = Math.min(value + valueToAdd, 50);
     }
 
-    boolean expiresWithin(int i) {
-        return this.sellIn < i;
+    boolean expiresWithin(int days) {
+        return this.sellIn < days;
     }
 
     String name() {

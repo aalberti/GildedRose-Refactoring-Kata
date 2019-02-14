@@ -7,14 +7,13 @@ class BackstagePasses extends Item {
 
     @Override
     void updateValue() {
-        increaseValue();
-        if (expiresWithin(10))
-            increaseValue();
-        if (expiresWithin(5))
-            increaseValue();
-
-        if (isExpired()) {
+        if (isExpired())
             wearOutBy(value());
-        }
+        else if (expiresWithin(5))
+            improveBy(3);
+        else if (expiresWithin(10))
+            improveBy(2);
+        else
+            improveBy(1);
     }
 }

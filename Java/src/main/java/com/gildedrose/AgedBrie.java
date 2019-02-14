@@ -7,9 +7,9 @@ class AgedBrie extends Item {
 
     @Override
     void updateValue() {
-        increaseValue();
-        if (isExpired()) {
-            increaseValue();
-        }
+        if (isExpired())
+            improveBy(2);
+        else
+            improveBy(1);
     }
 }
