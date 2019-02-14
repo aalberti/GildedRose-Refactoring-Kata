@@ -20,13 +20,17 @@ public class Item {
     }
 
     void updateValue() {
-        decreaseValue();
-        if (isExpired()) {
-            decreaseValue();
-        }
+        if (isExpired())
+            wearOutBy(2);
+        else
+            wearOutBy(1);
     }
 
-    void getOlder() {
+    private void wearOutBy(int valueToRemove) {
+        this.value = Math.max(this.value - valueToRemove, 0);
+    }
+
+    private void getOlder() {
         this.sellIn = this.sellIn - 1;
     }
 
@@ -37,12 +41,6 @@ public class Item {
     void increaseValue() {
         if (this.value < 50) {
             this.value = this.value + 1;
-        }
-    }
-
-    private void decreaseValue() {
-        if (this.value > 0) {
-            this.value = this.value - 1;
         }
     }
 
