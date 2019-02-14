@@ -43,7 +43,7 @@ public class GildedRoseTest {
 
     @Test
     public void theQualityOfAnItemIsNeverMoreThan50() throws Exception {
-        Item[] items = new Item[] {new AgedBrie(-1, 50), backstagePasses(3, 49)};
+        Item[] items = new Item[] {new AgedBrie(-1, 50), new BackstagePasses(3, 49)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         Item item = app.getItem("Aged Brie");
@@ -55,10 +55,6 @@ public class GildedRoseTest {
         assertEquals("Backstage passes to a TAFKAL80ETC concert", item2.name);
         assertEquals(50, item2.quality);
         assertEquals(2, item2.sellIn);
-    }
-
-    private static Item backstagePasses(int sellIn, int quality) {
-        return new BackstagePasses(sellIn, quality);
     }
 
     @Test
@@ -85,7 +81,7 @@ public class GildedRoseTest {
 
     @Test
     public void backstagePassesQualityIncrementsByOneWithEachDayPassing() throws Exception {
-        Item[] items = new Item[] {backstagePasses(11, 30)};
+        Item[] items = new Item[] {new BackstagePasses(11, 30)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         Item item = app.getItem("Backstage passes to a TAFKAL80ETC concert");
@@ -96,7 +92,7 @@ public class GildedRoseTest {
 
     @Test
     public void backstagePassesIncreaseInQualityBy2WhenThereAre10DaysOrLessRemaining() throws Exception {
-        Item[] items = new Item[] {backstagePasses(10, 30)};
+        Item[] items = new Item[] {new BackstagePasses(10, 30)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         Item item = app.getItem("Backstage passes to a TAFKAL80ETC concert");
@@ -107,7 +103,7 @@ public class GildedRoseTest {
 
     @Test
     public void backstagePassesIncreaseInQualityBy3WhenThereAre5DaysOrLessRemaining() throws Exception {
-        Item[] items = new Item[] {backstagePasses(5, 33)};
+        Item[] items = new Item[] {new BackstagePasses(5, 33)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         Item item = app.getItem("Backstage passes to a TAFKAL80ETC concert");
@@ -118,7 +114,7 @@ public class GildedRoseTest {
 
     @Test
     public void backstagePassesQualityDropsTo0AfterTheConcert() throws Exception {
-        Item[] items = new Item[] {backstagePasses(-1, 30)};
+        Item[] items = new Item[] {new BackstagePasses(-1, 30)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         Item item = app.getItem("Backstage passes to a TAFKAL80ETC concert");
