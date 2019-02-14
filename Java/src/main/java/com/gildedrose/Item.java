@@ -15,20 +15,23 @@ public class Item {
     }
 
     void update() {
+        getOlder();
+
         decreaseValue();
-
-        this.sellIn = this.sellIn - 1;
-
         if (isExpired()) {
             decreaseValue();
         }
     }
 
-    protected boolean isExpired() {
+    void getOlder() {
+        this.sellIn = this.sellIn - 1;
+    }
+
+    boolean isExpired() {
         return this.sellIn < 0;
     }
 
-    protected void increaseValue() {
+    void increaseValue() {
         if (this.value < 50) {
             this.value = this.value + 1;
         }

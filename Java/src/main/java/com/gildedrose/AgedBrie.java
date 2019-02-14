@@ -7,10 +7,9 @@ public class AgedBrie extends Item {
 
     @Override
     void update() {
+        getOlder();
+
         increaseValue();
-
-        this.sellIn = this.sellIn - 1;
-
         if (isExpired()) {
             increaseValue();
         }

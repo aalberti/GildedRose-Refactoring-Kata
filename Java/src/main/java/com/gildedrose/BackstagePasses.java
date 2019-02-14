@@ -7,20 +7,20 @@ public class BackstagePasses extends Item {
 
     @Override
     void update() {
-        increaseValue();
-        if (expiresIn(11))
-            increaseValue();
-        if (expiresIn(6))
-            increaseValue();
+        getOlder();
 
-        this.sellIn = this.sellIn - 1;
+        increaseValue();
+        if (expiresWithin(10))
+            increaseValue();
+        if (expiresWithin(5))
+            increaseValue();
 
         if (isExpired()) {
             this.value = 0;
         }
     }
 
-    private boolean expiresIn(int i) {
+    private boolean expiresWithin(int i) {
         return this.sellIn < i;
     }
 }
