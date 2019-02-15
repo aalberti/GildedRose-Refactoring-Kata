@@ -2,27 +2,27 @@ package com.gildedrose;
 
 public class Item {
 
-    public String name;
+    private String name;
 
-    public int sellIn;
+    private int sellIn;
 
-    public int value;
+    private int value;
 
     public Item(String name, int sellIn, int value) {
-        this.name = name;
-        this.sellIn = sellIn;
-        this.value = value;
+        this.setName(name);
+        this.setSellIn(sellIn);
+        setValue(value);
     }
 
     void nextDay() {
-        if (this.value > 0) {
-            this.value = this.value - 1;
+        if (getValue() > 0) {
+            setValue(getValue() - 1);
         }
 
-        this.sellIn = this.sellIn - 1;
+        this.setSellIn(this.getSellIn() - 1);
 
-        if (this.sellIn < 0 && this.value > 0) {
-            this.value = this.value - 1;
+        if (this.getSellIn() < 0 && getValue() > 0) {
+            setValue(getValue() - 1);
         }
     }
 
@@ -36,6 +36,22 @@ public class Item {
 
     @Override
     public String toString() {
-        return this.name + ", " + this.sellIn + ", " + this.value;
+        return this.getName() + ", " + this.getSellIn() + ", " + getValue();
+    }
+
+    public int getSellIn() {
+        return sellIn;
+    }
+
+    public void setSellIn(int sellIn) {
+        this.sellIn = sellIn;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -18,7 +18,7 @@ class GildedRose {
     public Item getItem(String name) {
         Item[] clone = items.clone();
         for (Item item : clone) {
-            if (name.equalsIgnoreCase(item.name)) {
+            if (name.equalsIgnoreCase(item.getName())) {
                 return item;
             }
         }

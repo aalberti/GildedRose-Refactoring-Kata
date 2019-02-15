@@ -7,14 +7,14 @@ public class AgedBrie extends Item {
 
     @Override
     void nextDay() {
-        if (this.value < 50) {
-            this.value = this.value + 1;
+        if (getValue() < 50) {
+            setValue(getValue() + 1);
         }
 
-        this.sellIn = this.sellIn - 1;
+        this.setSellIn(this.getSellIn() - 1);
 
-        if (this.sellIn < 0 && this.value < 50) {
-            this.value = this.value + 1;
+        if (this.getSellIn() < 0 && getValue() < 50) {
+            setValue(getValue() + 1);
         }
     }
 
