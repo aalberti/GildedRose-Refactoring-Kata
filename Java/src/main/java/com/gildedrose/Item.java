@@ -6,32 +6,30 @@ public class Item {
 
     private int sellIn;
 
-    private int value;
+    private Value value;
 
     public Item(String name, int sellIn, int value) {
         this.setName(name);
         this.setSellIn(sellIn);
-        setValue(value);
+        this.value = new Value(value);
     }
 
     void nextDay() {
-        if (getValue() > 0) {
-            setValue(getValue() - 1);
-        }
+        this.value.decrease();
 
         this.setSellIn(this.getSellIn() - 1);
 
-        if (this.getSellIn() < 0 && getValue() > 0) {
-            setValue(getValue() - 1);
+        if (this.getSellIn() < 0) {
+            this.value.decrease();
         }
     }
 
     public int getValue() {
-        return value;
+        return value.value();
     }
 
     public void setValue(int value) {
-        this.value = value;
+        this.value = new Value(value);
     }
 
     @Override
