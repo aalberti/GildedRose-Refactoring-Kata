@@ -43,7 +43,7 @@ public class GildedRoseTest {
 
     @Test
     public void theQualityOfAnItemIsNeverMoreThan50() {
-        Item[] items = new Item[] {agedBrie(-1, 50), new Item("Backstage passes to a TAFKAL80ETC concert", 3, 49) };
+        Item[] items = new Item[] {agedBrie(-1, 50), new BackstagePasses(3, 49) };
         GildedRose app = new GildedRose(items);
         app.nextDay();
         Item item = app.getItem("Aged Brie");
@@ -85,7 +85,7 @@ public class GildedRoseTest {
 
     @Test
     public void backstagePassesQualityIncrementsByOneWithEachDayPassing() {
-        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 11, 30) };
+        Item[] items = new Item[] { new BackstagePasses(11, 30) };
         GildedRose app = new GildedRose(items);
         app.nextDay();
         Item item = app.getItem("Backstage passes to a TAFKAL80ETC concert");
@@ -96,7 +96,7 @@ public class GildedRoseTest {
 
     @Test
     public void backstagePassesIncreaseInQualityBy2WhenThereAre10DaysOrLessRemaining() {
-        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 10, 30) };
+        Item[] items = new Item[] { new BackstagePasses(10, 30) };
         GildedRose app = new GildedRose(items);
         app.nextDay();
         Item item = app.getItem("Backstage passes to a TAFKAL80ETC concert");
@@ -107,7 +107,7 @@ public class GildedRoseTest {
 
     @Test
     public void backstagePassesIncreaseInQualityBy3WhenThereAre5DaysOrLessRemaining() {
-        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 5, 33) };
+        Item[] items = new Item[] { new BackstagePasses(5, 33) };
         GildedRose app = new GildedRose(items);
         app.nextDay();
         Item item = app.getItem("Backstage passes to a TAFKAL80ETC concert");
@@ -118,7 +118,7 @@ public class GildedRoseTest {
 
     @Test
     public void backstagePassesQualityDropsTo0AfterTheConcert() {
-        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", -1, 30) };
+        Item[] items = new Item[] { new BackstagePasses(-1, 30) };
         GildedRose app = new GildedRose(items);
         app.nextDay();
         Item item = app.getItem("Backstage passes to a TAFKAL80ETC concert");
