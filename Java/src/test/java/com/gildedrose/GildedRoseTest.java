@@ -43,7 +43,7 @@ public class GildedRoseTest {
 
     @Test
     public void theQualityOfAnItemIsNeverMoreThan50() {
-        Item[] items = new Item[] { new Item("Aged Brie", -1, 50), new Item("Backstage passes to a TAFKAL80ETC concert", 3, 49) };
+        Item[] items = new Item[] {agedBrie(-1, 50), new Item("Backstage passes to a TAFKAL80ETC concert", 3, 49) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         Item item = app.getItem("Aged Brie");
@@ -59,7 +59,7 @@ public class GildedRoseTest {
 
     @Test
     public void briesQualityIncrementsByOneForEachDayPastItsSellByDate() {
-        Item[] items = new Item[] {agedBrie()};
+        Item[] items = new Item[] {agedBrie(-1, 1)};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         Item item = app.getItem("Aged Brie");
@@ -68,8 +68,8 @@ public class GildedRoseTest {
         assertEquals(-2, item.sellIn);
     }
 
-    private Item agedBrie() {
-        return new Item("Aged Brie", -1, 1);
+    private Item agedBrie(int sellIn, int quality) {
+        return new AgedBrie(sellIn, quality);
     }
 
     @Test
