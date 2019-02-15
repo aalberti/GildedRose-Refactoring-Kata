@@ -15,23 +15,15 @@ public class Item {
     }
 
     void nextDay() {
-        if (this.quality > 0 && !isSulfuras()) {
+        if (this.quality > 0) {
             this.quality = this.quality - 1;
         }
 
-        if (!isSulfuras()) {
-            this.sellIn = this.sellIn - 1;
-        }
+        this.sellIn = this.sellIn - 1;
 
-        if (this.sellIn < 0) {
-            if (this.quality > 0 && !isSulfuras()) {
-                this.quality = this.quality - 1;
-            }
+        if (this.sellIn < 0 && this.quality > 0) {
+            this.quality = this.quality - 1;
         }
-    }
-
-    private boolean isSulfuras() {
-        return this.name.equals("Sulfuras, Hand of Ragnaros");
     }
 
     @Override
