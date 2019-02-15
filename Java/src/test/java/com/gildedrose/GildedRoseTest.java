@@ -59,13 +59,17 @@ public class GildedRoseTest {
 
     @Test
     public void briesQualityIncrementsByOneForEachDayPastItsSellByDate() {
-        Item[] items = new Item[] { new Item("Aged Brie", -1, 1) };
+        Item[] items = new Item[] {agedBrie()};
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         Item item = app.getItem("Aged Brie");
         assertEquals("Aged Brie", item.name);
         assertEquals(3, item.quality);
         assertEquals(-2, item.sellIn);
+    }
+
+    private Item agedBrie() {
+        return new Item("Aged Brie", -1, 1);
     }
 
     @Test
