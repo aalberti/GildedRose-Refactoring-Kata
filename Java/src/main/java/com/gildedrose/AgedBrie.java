@@ -6,7 +6,7 @@ public class AgedBrie extends Item {
     }
 
     @Override
-    void lkjhsfglhj() {
+    void nextDay() {
         if (this.quality < 50) {
             this.quality = this.quality + 1;
         }
