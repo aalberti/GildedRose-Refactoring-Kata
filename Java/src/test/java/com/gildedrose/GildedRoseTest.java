@@ -18,7 +18,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void onceTheSellByDateHasPassed_QualityDegradesTwiceAsFast() throws Exception {
+    public void onceTheSellByDateHasPassed_QualityDegradesTwiceAsFast() {
         Item[] items = new Item[] { new Item("bar", -1, 2) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -29,7 +29,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void qualityOfAnItemIsNeverNegative() throws Exception {
+    public void qualityOfAnItemIsNeverNegative() {
         Item[] items = new Item[] { new Item("foo", 2, 2) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -42,7 +42,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void theQualityOfAnItemIsNeverMoreThan50() throws Exception {
+    public void theQualityOfAnItemIsNeverMoreThan50() {
         Item[] items = new Item[] { new Item("Aged Brie", -1, 50), new Item("Backstage passes to a TAFKAL80ETC concert", 3, 49) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -58,7 +58,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void briesQualityIncrementsByOneForEachDayPastItsSellByDate() throws Exception {
+    public void briesQualityIncrementsByOneForEachDayPastItsSellByDate() {
         Item[] items = new Item[] { new Item("Aged Brie", -1, 1) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -69,7 +69,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void SulfurasBeingALegendaryItemNeverHasToBeSoldOrDecreasesInQuality() throws Exception {
+    public void SulfurasBeingALegendaryItemNeverHasToBeSoldOrDecreasesInQuality() {
         Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", -1, 80) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -80,7 +80,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void backstagePassesQualityIncrementsByOneWithEachDayPassing() throws Exception {
+    public void backstagePassesQualityIncrementsByOneWithEachDayPassing() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 11, 30) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -91,7 +91,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void backstagePassesIncreaseInQualityBy2WhenThereAre10DaysOrLessRemaining() throws Exception {
+    public void backstagePassesIncreaseInQualityBy2WhenThereAre10DaysOrLessRemaining() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 10, 30) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -102,7 +102,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void backstagePassesIncreaseInQualityBy3WhenThereAre5DaysOrLessRemaining() throws Exception {
+    public void backstagePassesIncreaseInQualityBy3WhenThereAre5DaysOrLessRemaining() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 5, 33) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -113,7 +113,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void backstagePassesQualityDropsTo0AfterTheConcert() throws Exception {
+    public void backstagePassesQualityDropsTo0AfterTheConcert() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", -1, 30) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -124,7 +124,7 @@ public class GildedRoseTest {
     }
 
     @Test(expected=RuntimeException.class)
-    public void getItem_throwsRuntimeExceptionIfRequestedItemDoesntExist() throws Exception {
+    public void getItem_throwsRuntimeExceptionIfRequestedItemDoesntExist() {
         GildedRose app = new GildedRose(new Item[0]);
         app.getItem("foobar");
     }
